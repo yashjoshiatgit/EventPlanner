@@ -36,9 +36,15 @@ const scrollto = elem => {
  * Scroll to contact section on contact-us button click
  */
 selectElem('#contact_btn').addEventListener('click', function(e) {
-	e.preventDefault();
-	scrollto(this.hash);
+	// Check if the link is external
+	if (this.href.includes('xenesis.ldrp.ac.in')) {
+		window.open(this.href, '_blank'); // Open in a new tab
+	} else {
+		e.preventDefault();
+		scrollto(this.hash);
+	}
 });
+
 
 /***
  * Scroll to target section on navlink click
